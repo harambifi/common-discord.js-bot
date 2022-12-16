@@ -15,14 +15,14 @@ client.on(Events.MessageCreate, async message => {
     console.log('"' + message["content"] + '", written by ' + message.author.username + "#" + message.author.discriminator);
 });
 
-// client.on(Events.InteractionCreate, interaction => {
-//     if (interaction.isChatInputCommand()) {
-//         if (interaction.isCommand()) {
-//             return
-//         }
-//         interaction.reply("Hello");
-//     }
-// });
+client.on(Events.InteractionCreate, async interaction => {
+     if (interaction.isChatInputCommand()) {
+         if (interaction.commandName === 'ping') {
+             await interaction.reply("Hello");
+         }
+         
+     }
+});
 
 
 client.login(TOKEN);
